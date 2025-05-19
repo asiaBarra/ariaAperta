@@ -1,0 +1,47 @@
+.navbar-nav .nav-link {
+  min-width: 140px !important; 
+  text-align: center !important; 
+}
+
+.link-custom {
+  border: 3px solid #AFEEEE !important; 
+  background-color: white !important; 
+  color: black  !important;
+  width: 130px !important;
+  text-align: center !important;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease !important;
+  
+}
+
+.link-custom:hover {
+  transform: scale(1.05);
+}
+
+.navbar {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+@media (max-width: 991.98px) {
+  .link-custom {
+    width: 90% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .link-custom {
+    width: 130px !important;
+  }
+}
+
+.header-box {
+  margin: 10px; /* margine intorno all'header */
+  border-radius: 10px; /* angoli stondati */
+  overflow: hidden; /* per mantenere il bordo stondato anche all'interno */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* opzionale: un'ombra per effetto sollevato */
+  background-color: #4CA4E3;
+}
+
+.body {
+  background-color: #A7D2F1 !important; /* Cambia il colore di sfondo */
+}
