@@ -8,6 +8,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
   <script src="ariaAperta.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/rss-parser/dist/rss-parser.min.js"></script>
+
+
 </head>
 <body class="body">
   <header class="header-box">
@@ -78,7 +82,17 @@
   <div class="col-md-6">
     <div id="comunicazioni" class="p-4 rounded shadow-sm bg-white border-start border-4 h-100">
       <h4 class="fw-bold text-primary">Comunicazioni rassegna stampa:</h4>
-      <p>Link a blogger ------------------------------ ------------------------------ ------------------------------ ------------------------------ ------------------------------</p>
+      <script>
+  $.get("https://api.rss2json.com/v1/api.json?rss_url=https://testariaaperta.blogspot.com/feeds/posts/default?alt=rss", function(data) {
+    let html = "<ul>";
+    data.items.slice(0, 5).forEach(function(post) {
+      html += `<li><a href="${post.link}" target="_blank">${post.title}</a></li>`;
+    });
+    html += "</ul>";
+    $("#comunicazioni").append(html);
+  });
+</script>
+
     </div>
   </div>
   <div class="col-md-6">
