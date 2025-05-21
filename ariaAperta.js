@@ -1,8 +1,5 @@
 "use strict";
 
-// Variabile globale per contenuto originale
-let contenutoOriginale = null;
-
 function cercaParola() {
   const inputElem = document.getElementById("search");
   if (!inputElem) {
@@ -11,15 +8,12 @@ function cercaParola() {
   }
 
   const parola = inputElem.value.trim();
-  if (!parola) return;
-
-  // Salva il contenuto originale una sola volta
-  if (!contenutoOriginale) {
-    contenutoOriginale = document.body.innerHTML;
-  } else {
-    // Ripristina il contenuto originale ad ogni ricerca
-    document.body.innerHTML = contenutoOriginale;
+  if (!parola) {
+    rimuoviEvidenziazione(); // Rimuovi evidenziazioni se la ricerca è vuota
+    return;
   }
+
+  rimuoviEvidenziazione();
 
   const regex = new RegExp(parola, "gi");
 
@@ -28,14 +22,14 @@ function cercaParola() {
       let testo = node.nodeValue;
       if (regex.test(testo)) {
         let span = document.createElement("span");
-        span.innerHTML = testo.replace(regex, "<mark>$&</mark>");
+        span.innerHTML = testo.replace(regex, "<mark class='evidenziato'>$&</mark>");
         node.parentNode.replaceChild(span, node);
       }
     } else if (
       node.nodeType === 1 &&
       !["SCRIPT", "STYLE", "TEXTAREA", "INPUT", "MARK"].includes(node.tagName)
     ) {
-      for (let i = 0; i < node.childNodes.length; i++) {
+      for (let i = node.childNodes.length - 1; i >= 0; i--) {
         evidenzia(node.childNodes[i]);
       }
     }
@@ -43,5 +37,15 @@ function cercaParola() {
 
   evidenzia(document.body);
 }
+
+function rimuoviEvidenziazione() {
+  const evidenziati = document.querySelectorAll("mark.evidenziato");
+  evidenziati.forEach(mark => {
+    const parent = mark.parentNode;
+    parent.replaceChild(document.createTextNode(mark.textContent), mark);
+    parent.normalize(); // Unisce i nodi di testo adiacenti
+  });
+}
+
 
 
