@@ -1,16 +1,16 @@
 .navbar-nav .nav-link {
-  min-width: 140px !important; 
-  text-align: center !important; 
+  min-width: 140px !important;
+  text-align: center !important;
 }
 
 .link-custom {
-  border: 3px solid #AFEEEE !important; 
-  background-color: white !important; 
-  color: black  !important;
+  border: 3px solid #AFEEEE !important;
+  background-color: white !important;
+  color: black !important;
   width: 130px !important;
   text-align: center !important;
   transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease !important;
-  
+
 }
 
 .link-custom:hover {
@@ -35,16 +35,30 @@
 }
 
 .header-box {
-  position: sticky; /* rende l'header fisso */
-  top: 0; /* posizione fissa in alto */
-  margin: 10px; /* margine intorno all'header */
-  border-radius: 10px; /* angoli stondati */
-  overflow: hidden; /* per mantenere il bordo stondato anche all'interno */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* opzionale: un'ombra per effetto sollevato */
+  position: sticky;
+  /* rende l'header fisso */
+  top: 0;
+  /* posizione fissa in alto */
+  margin: 10px;
+  /* margine intorno all'header */
+  border-radius: 10px;
+  /* angoli stondati */
+  overflow: hidden;
+  /* per mantenere il bordo stondato anche all'interno */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* opzionale: un'ombra per effetto sollevato */
   background-color: #4cb8e3b1;
   z-index: 9999;
 }
 
 .body {
-      background: linear-gradient(to bottom, #A7D2F1, #4cb8e3b1);
+  background: linear-gradient(to bottom, #A7D2F1, #4cb8e3b1);
+}
+
+.carousel-ridotto {
+  width: 100%;
+}
+
+.object-fit-cover {
+  object-fit: cover;
 }

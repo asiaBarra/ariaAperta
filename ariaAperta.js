@@ -46,6 +46,3 @@ function rimuoviEvidenziazione() {
     parent.normalize(); // Unisce i nodi di testo adiacenti
   });
 }
-
-
-
